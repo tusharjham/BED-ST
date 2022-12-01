@@ -1,0 +1,18 @@
+.App {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-image: url("./images/background.jpg");
+  background-size: 100% 120%;
+  background-repeat: no-repeat;
+}
+@media only screen and (max-width: 976px) {
+  .App {
+    background-size: 100% 100%;
+  }
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
