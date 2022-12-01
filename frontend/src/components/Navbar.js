@@ -1,9 +1,6 @@
 import { Box, Flex, Stack, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import About from "./About";
-import Blogs from "./Blogs";
-import Home from "./Home";
 import { HiMenu } from "react-icons/hi";
 import { IoCloseSharp } from "react-icons/io5";
 
@@ -30,7 +27,7 @@ const Navbar = () => {
     >
       <Box className="logo">
         <Text fontSize={"2xl"} fontWeight={"bold"} color={"whitesmoke"}>
-          Logo
+          Football Blog
         </Text>
       </Box>
       {/* button */}

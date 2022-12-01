@@ -1,4 +1,4 @@
-import { Box, Text, useToast } from "@chakra-ui/react";
+import { Box, position, Text, useToast } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import BlogUi from "./BlogUi";
@@ -8,8 +8,19 @@ const Blogs = () => {
   const toast = useToast();
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get("/api/getAllPosts");
-      setBlogs(data);
+      try {
+        const { data } = await axios.get("/api/getAllPosts");
+        setBlogs(data.reverse());
+      } catch (err) {
+        toast({
+          title: "Errro",
+          description: err,
+          status: "error",
+          position: "top",
+          duration: "9000",
+          isClosable: true,
+        });
+      }
     };
     fetchData();
   }, []);
@@ -22,9 +33,10 @@ const Blogs = () => {
       top={"7vh"}
       p={8}
       overflow={"scroll"}
-      border="5px solid blue"
     >
       {blogs.map((x) => {
+        const t = x.createdAt;
+        const d = new Date(t);
         return (
           <BlogUi
             key={x._id}
